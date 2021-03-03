@@ -312,8 +312,6 @@ function scheduleHtmlParser(html) {
                 for (let comma = 0; comma < weeks_comma.length; ++comma) {
                     // 检查连接号
                     let weeks_connection = weeks_comma[comma].split('-');
-                    // _course.weeks.push()
-                    //todo: 单双周检测
                     _course.weeks = _course.weeks.concat(_range(weeks_connection[0], weeks_connection.length == 1 ? weeks_connection[0] : weeks_connection[1]))
                 }
                 // 单双周检测
