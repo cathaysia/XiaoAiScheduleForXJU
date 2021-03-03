@@ -1,3 +1,4 @@
+// 经过 scheduleHtmlProvider 清洗的HTML
 let html = String.raw`<table class="table" id="scheduleTable" name="mytable">
 			
 <tbody>
@@ -249,10 +250,12 @@ let html = String.raw`<table class="table" id="scheduleTable" name="mytable">
 </tbody>
 </table>`
 
+// 用来在 vsode 调试
 const cheerio = require('cheerio')
 const $ = cheerio.load(html)
 
 // class， 写在scheduleHtmlParser外的函数可能导致手机版无法运行
+// 课程表的导入此文件只需要这个函数，其他代码都是用来做测试用的
 function scheduleHtmlParser(html) {
     function Section() {
         this.section = -1;
@@ -355,7 +358,8 @@ function scheduleHtmlParser(html) {
 
 }
 
-// 官方带的解析例子
+// 官方带的测试方法
+// 这个测试通过不代表浏览器测试通过，手机同理
 function testParser(text) {
     let isTrue = 1
     if (text.courseInfos && text.courseInfos.length > 0) {

@@ -19,6 +19,8 @@ function scheduleHtmlProvider(iframeContent = "", frameContent = "", dom = docum
     ) {
         tables[0].getElementsByClassName('td1')[0].remove()
     }
+    // 这里 tables[1] 还有可以选课表，可以用来合并课程。但是太麻烦了。不再使用
+    // 合并课程主要针对的是实验课
 
     return tables[0].outerHTML;
 }
